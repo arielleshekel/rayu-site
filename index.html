@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rayu</title>
+<meta name="description" content="Rayu — a private space for the little moments.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700;900&family=Source+Serif+4:opsz,wght@8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF7F2; --brown:#2C1A0E; --blue:#564FFA;
+    --green:#4E9478; --tan:#BEA57D; --orange:#FF4D10; --pink:#FFAFCB;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--cream); color:var(--brown);
+    font-family:"Source Serif 4",Georgia,serif; font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .wrap{max-width:560px; padding:48px 24px; text-align:center}
+  .blobs{
+    display:flex; gap:14px; justify-content:center;
+    margin:0 0 36px;
+  }
+  .blob{
+    width:46px; height:46px;
+    border-radius:52% 48% 44% 56% / 50% 54% 46% 50%;
+  }
+  .b1{background:var(--green)}  .b2{background:var(--blue)}
+  .b3{background:var(--pink); border-radius:46% 54% 52% 48% / 55% 45% 55% 45%}
+  .b4{background:var(--orange); border-radius:55% 45% 48% 52% / 44% 56% 44% 56%}
+  h1{
+    font-family:"DM Sans",system-ui,sans-serif; font-weight:900;
+    font-size:64px; line-height:0.95; letter-spacing:-0.03em;
+    margin:0 0 16px; color:#000;
+  }
+  p.tag{font-size:19px; line-height:1.55; margin:0 0 40px; opacity:.75}
+  nav a{
+    font-family:"DM Sans",sans-serif; font-weight:700; font-size:15px;
+    color:var(--blue); text-decoration:underline; text-underline-offset:3px;
+    margin:0 14px;
+  }
+  footer{margin-top:56px; font-size:14px; opacity:.5}
+  @media (max-width:520px){ h1{font-size:48px} p.tag{font-size:17px} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="blobs">
+      <div class="blob b1"></div><div class="blob b2"></div>
+      <div class="blob b3"></div><div class="blob b4"></div>
+    </div>
+    <h1>Rayu</h1>
+    <p class="tag">A private space for the little moments.</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <footer>© 2026 Rayu</footer>
+  </div>
+</body>
+</html>
