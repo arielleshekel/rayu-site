@@ -124,17 +124,17 @@
     body{display:block; height:100svh; overflow:hidden}
     .stage{margin:0 auto}
     /* Extra room at the bottom so Safari's toolbar never covers the footer. */
-    footer{position:absolute; padding:0 20px calc(20px + env(safe-area-inset-bottom))}
+    footer{position:absolute; padding:0 20px calc(8px + env(safe-area-inset-bottom))}
     .walk, .red, .music{display:none}
     /* When pieces overlap on short screens, words and the logo stay on top of photos. */
     .txt, .logo{z-index:2}
-    .rain      {--x:100; --y:37;  --k:.62}
-    .star      {--x:232; --y:56;  --k:.4}
-    .street    {--x:310; --y:90;  --k:.5}
-    .monkey    {--x:200; --y:148; --k:.6}
-    .blob-green{--x:44;  --y:220; --k:.42}
-    .ball      {--x:116; --y:282; --k:.58}
-    .painting  {--x:318; --y:284; --k:.5}
+    .rain      {--x:100; --y:30;  --k:.62}
+    .star      {--x:232; --y:50;  --k:.4}
+    .street    {--x:310; --y:80;  --k:.5}
+    .monkey    {--x:200; --y:128; --k:.6}
+    .blob-green{--x:44;  --y:196; --k:.42}
+    .ball      {--x:116; --y:252; --k:.58}
+    .painting  {--x:318; --y:252; --k:.5}
     /* Logo + Coming Soon: exactly in the middle of the screen, whatever its height. */
     .logo      {--x:200; --k:.55; top:calc(405 * var(--uy) - 39 * var(--u))}
     .soon      {--x:200; --k:.56; top:calc(405 * var(--uy) + 21 * var(--u))}
