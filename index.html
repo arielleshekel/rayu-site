@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rayu — coming soon</title>
 <meta name="description" content="Rayu — a private space for the little moments.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@900&family=Source+Serif+4:opsz,wght@8..60,300&display=swap" rel="stylesheet">
@@ -112,27 +116,30 @@
   footer a{color:#000; text-decoration:none}
   footer a:hover{text-decoration:underline; text-underline-offset:3px}
 
-  /* Phones: a taller 400 x 860 frame, fewer pieces, each a bit smaller (--k). */
+  /* Phones: a taller 400 x 810 frame, fewer pieces, each a bit smaller (--k).
+     It always fills the screen's width; on short screens the page scrolls a little. */
   @media (max-width:700px) and (orientation:portrait){
-    :root{ --fw:400; --fh:860; --u:min(calc(100vw / 400), calc(100svh / 860)); }
+    :root{ --fw:400; --fh:810; --u:calc(100vw / 400); }
+    body{display:flex; flex-direction:column; align-items:stretch; overflow-x:hidden; overflow-y:auto}
+    footer{position:static; margin-top:auto; padding:4px 20px 20px}
     .walk, .red, .music{display:none}
     .rain      {--x:100; --y:40;  --k:.62}
     .star      {--x:232; --y:62;  --k:.4}
     .street    {--x:310; --y:100; --k:.5}
     .monkey    {--x:200; --y:180; --k:.6}
-    .blob-green{--x:44;  --y:262; --k:.42}
-    .ball      {--x:118; --y:330; --k:.58}
-    .painting  {--x:300; --y:322; --k:.5}
-    .logo      {--x:200; --y:410; --k:.62}
-    .soon      {--x:200; --y:478; --k:.62}
-    .blob-b1   {--x:42;  --y:500; --k:.42}
-    .blue1     {--x:100; --y:592; --k:.5}
-    .love      {--x:290; --y:548; --k:.62}
-    .blob-or   {--x:205; --y:650; --k:.45}
-    .moon      {--x:110; --y:690; --k:.55}
-    .monkeybars{--x:290; --y:735; --k:.52}
-    .blob-pink {--x:200; --y:775; --k:.4}
-    .blob-b2   {--x:365; --y:640; --k:.4}
+    .blob-green{--x:44;  --y:250; --k:.42}
+    .ball      {--x:118; --y:316; --k:.58}
+    .painting  {--x:300; --y:308; --k:.5}
+    .logo      {--x:200; --y:418; --k:.55}
+    .soon      {--x:200; --y:478; --k:.56}
+    .blob-b1   {--x:40;  --y:530; --k:.42}
+    .blue1     {--x:100; --y:606; --k:.5}
+    .love      {--x:290; --y:562; --k:.62}
+    .blob-or   {--x:205; --y:662; --k:.45}
+    .moon      {--x:110; --y:700; --k:.55}
+    .monkeybars{--x:290; --y:742; --k:.52}
+    .blob-pink {--x:200; --y:782; --k:.4}
+    .blob-b2   {--x:365; --y:652; --k:.4}
   }
 </style>
 </head>
