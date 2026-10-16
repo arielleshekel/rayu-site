@@ -120,8 +120,14 @@
      It always fills the screen's width; on short screens the page scrolls a little. */
   @media (max-width:700px) and (orientation:portrait){
     :root{ --fw:400; --fh:810; --u:calc(100vw / 400); }
-    body{display:flex; flex-direction:column; align-items:stretch; overflow-x:hidden; overflow-y:auto}
-    footer{position:static; margin-top:auto; padding:4px 20px 20px}
+    /* Let the page itself scroll (not centered, or the top gets cut off on short screens). */
+    html,body{height:auto}
+    body{
+      display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch;
+      min-height:100svh; overflow-x:clip; overflow-y:visible;
+    }
+    /* Extra room at the bottom so Safari's toolbar never covers the footer. */
+    footer{position:static; margin-top:auto; padding:4px 20px calc(20px + env(safe-area-inset-bottom))}
     .walk, .red, .music{display:none}
     .rain      {--x:100; --y:40;  --k:.62}
     .star      {--x:232; --y:62;  --k:.4}
