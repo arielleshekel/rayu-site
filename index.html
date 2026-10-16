@@ -37,13 +37,13 @@
   }
   .stage{
     position:relative; flex:none;
-    width:calc(var(--fw) * var(--u)); height:calc(var(--fh) * var(--u));
+    width:calc(var(--fw) * var(--u)); height:calc(var(--fh) * var(--uy, var(--u)));
   }
 
   /* Each piece is placed in Figma pixels: --x/--y is its center (top center for text and the logo). */
   .it{
     position:absolute; margin:0;
-    left:calc(var(--x) * var(--u)); top:calc(var(--y) * var(--u));
+    left:calc(var(--x) * var(--u)); top:calc(var(--y) * var(--uy, var(--u)));
     width:calc(var(--w) * var(--u) * var(--k, 1));
     transform:translate(-50%, -50%) rotate(var(--r, 0deg));
   }
@@ -116,36 +116,36 @@
   footer a{color:#000; text-decoration:none}
   footer a:hover{text-decoration:underline; text-underline-offset:3px}
 
-  /* Phones: a taller 400 x 810 frame, fewer pieces, each a bit smaller (--k).
-     It always fills the screen's width; on short screens the page scrolls a little. */
+  /* Phones: one screen, no scrolling. A 400 x 810 frame: across, it fills the screen's
+     width (--u); down, it squeezes to the screen's height (--uy), so on shorter phones
+     the pieces sit closer and may overlap. RAYU / Coming Soon sit in the middle (y 405). */
   @media (max-width:700px) and (orientation:portrait){
-    :root{ --fw:400; --fh:810; --u:calc(100vw / 400); }
-    /* Let the page itself scroll (not centered, or the top gets cut off on short screens). */
-    html,body{height:auto}
-    body{
-      display:flex; flex-direction:column; justify-content:flex-start; align-items:stretch;
-      min-height:100svh; overflow-x:clip; overflow-y:visible;
-    }
+    :root{ --fw:400; --fh:810; --u:calc(100vw / 400); --uy:calc(100svh / 810); }
+    body{display:block; height:100svh; overflow:hidden}
+    .stage{margin:0 auto}
     /* Extra room at the bottom so Safari's toolbar never covers the footer. */
-    footer{position:static; margin-top:auto; padding:4px 20px calc(20px + env(safe-area-inset-bottom))}
+    footer{position:absolute; padding:0 20px calc(20px + env(safe-area-inset-bottom))}
     .walk, .red, .music{display:none}
-    .rain      {--x:100; --y:40;  --k:.62}
-    .star      {--x:232; --y:62;  --k:.4}
-    .street    {--x:310; --y:100; --k:.5}
-    .monkey    {--x:200; --y:180; --k:.6}
-    .blob-green{--x:44;  --y:250; --k:.42}
-    .ball      {--x:118; --y:316; --k:.58}
-    .painting  {--x:300; --y:308; --k:.5}
-    .logo      {--x:200; --y:418; --k:.55}
-    .soon      {--x:200; --y:478; --k:.56}
-    .blob-b1   {--x:40;  --y:530; --k:.42}
-    .blue1     {--x:100; --y:606; --k:.5}
-    .love      {--x:290; --y:562; --k:.62}
-    .blob-or   {--x:205; --y:662; --k:.45}
-    .moon      {--x:110; --y:700; --k:.55}
-    .monkeybars{--x:290; --y:742; --k:.52}
-    .blob-pink {--x:200; --y:782; --k:.4}
-    .blob-b2   {--x:365; --y:652; --k:.4}
+    /* When pieces overlap on short screens, words and the logo stay on top of photos. */
+    .txt, .logo{z-index:2}
+    .rain      {--x:100; --y:37;  --k:.62}
+    .star      {--x:232; --y:56;  --k:.4}
+    .street    {--x:310; --y:90;  --k:.5}
+    .monkey    {--x:200; --y:148; --k:.6}
+    .blob-green{--x:44;  --y:220; --k:.42}
+    .ball      {--x:116; --y:282; --k:.58}
+    .painting  {--x:318; --y:284; --k:.5}
+    /* Logo + Coming Soon: exactly in the middle of the screen, whatever its height. */
+    .logo      {--x:200; --k:.55; top:calc(405 * var(--uy) - 39 * var(--u))}
+    .soon      {--x:200; --k:.56; top:calc(405 * var(--uy) + 21 * var(--u))}
+    .blob-b1   {--x:40;  --y:480; --k:.42}
+    .blue1     {--x:100; --y:559; --k:.5}
+    .love      {--x:290; --y:513; --k:.62}
+    .blob-or   {--x:205; --y:617; --k:.45}
+    .moon      {--x:110; --y:652; --k:.55}
+    .monkeybars{--x:290; --y:696; --k:.52}
+    .blob-pink {--x:200; --y:738; --k:.4}
+    .blob-b2   {--x:365; --y:606; --k:.4}
   }
 </style>
 </head>
