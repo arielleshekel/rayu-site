@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rayu — coming soon</title>
+<title>Rayu — little moments worth remembering</title>
 <meta name="description" content="Rayu — a private space for the little moments.">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -68,26 +68,26 @@
   .heavy{font-family:var(--heavy); font-weight:800}
   .serif{font-family:var(--serif); font-weight:300; font-style:normal}
 
-  /* Positions, sizes and turns from Figma (Desktop - 2, node 706:2679). */
-  .street    {--x:1571.48; --y:220.72; --w:188.19; --h:252.01; --r:9.86deg}
-  .walk      {--x:1200.5;  --y:190.72; --w:166.33; --h:247.93; --r:6.42deg} /* the drawing here was turned -173.58deg; same tilt, upright */
-  .blob-b1   {--x:537.9;   --y:348.2;  --w:106.77}
-  .ball      {--x:216.26;  --y:466.11; --w:229.47; --h:163.68; --r:6.93deg; --k:1.12}
+  /* Positions, sizes and turns from Figma (updated site, frame 764:8146). */
+  .street    {--x:1631.5;  --y:200.7;  --w:188.19; --h:252.01; --r:9.86deg}
+  .walk      {--x:1260.5;  --y:170.7;  --w:166.33; --h:247.93; --r:6.42deg} /* the drawing here was turned -173.58deg; same tilt, upright */
+  .blob-b1   {--x:537.9;   --y:306.2;  --w:106.77}
+  .ball      {--x:216.26;  --y:426.1;  --w:229.47; --h:163.68; --r:6.93deg; --k:1.12}
   .monkeybars{--x:1390.64; --y:897.39; --w:229.47; --h:163.68; --r:-13.06deg}
-  .blob-or   {--x:715.2;   --y:835.6;  --w:87.47;  --r:11.79deg}
-  .blob-green{--x:243.7;   --y:350.3;  --w:88.4;   --r:-121.27deg}
-  .star      {--x:1464.7;  --y:225.4;  --w:110.53}
-  .rain      {--x:354.92;  --y:136.72; --fs:27.841; --lh:30.316; --ls:-0.9139; color:#5BB28F}
-  .soon      {--x:858.73;  --y:647.76; --fs:36;     --lh:30.316; --ls:-0.9139}
-  .monkey    {--x:803.58;  --y:249.97; --fs:23.002; --lh:27.603; color:#FF4D10}
+  .blob-or   {--x:715.2;   --y:855.6;  --w:87.47;  --r:11.79deg}
+  .blob-green{--x:243.7;   --y:310.3;  --w:88.4;   --r:-121.27deg}
+  .star      {--x:1524.7;  --y:205.5;  --w:110.53}
+  .rain      {--x:354.92;  --y:96.7;   --fs:27.841; --lh:30.316; --ls:-0.9139; color:#5BB28F}
+  .slogan    {--x:864;     --y:584.9;  --fs:30.3;   --lh:46;     --ls:-0.77}
+  .monkey    {--x:803.58;  --y:230;    --fs:23.002; --lh:27.603; color:#FF4D10}
   .love      {--x:1525.08; --y:543.76; --fs:26.456; --lh:31.748; color:#FFAFCB}
   .moon      {--x:1063.99; --y:833.88; --fs:42;     --lh:42;     --ls:-1.5207; color:#564FFA}
-  .logo      {--x:864;     --y:513.23; --w:431.36; transform:translateX(-50%)}
-  .red       {--x:526.69;  --y:886.69; --w:175.97; --h:246; --r:12.33deg}
+  .logo      {--x:864;     --y:455;    --w:431.36; transform:translateX(-50%)}
+  .red       {--x:506.7;   --y:886.69; --w:175.97; --h:246; --r:12.33deg}
   .red > img {object-position:bottom}
-  .painting  {--x:1260.38; --y:343.72; --w:184.5;  --h:246}
-  .blue1     {--x:457.83;  --y:721.79; --w:165.04; --h:246; --r:171.99deg}
-  .music     {--x:234.86;  --y:732.06; --fs:42;     --lh:42;     --ls:-1.5; color:#F790B4}
+  .painting  {--x:1320.4;  --y:323.7;  --w:184.5;  --h:246}
+  .blue1     {--x:437.8;   --y:721.79; --w:165.04; --h:246; --r:171.99deg}
+  .music     {--x:214.9;   --y:712.1;  --fs:42;     --lh:42;     --ls:-1.5; color:#F790B4}
   .blob-pink {--x:1244.7;  --y:623.3;  --w:75.54;  transform:translate(-50%, -50%) rotate(90deg) scaleX(-1)}
   .blob-b2   {--x:1554;    --y:908.9;  --w:82.35;  --r:16.01deg}
 
@@ -113,12 +113,13 @@
     font-family:var(--heavy); font-weight:800; font-size:12px; line-height:1;
   }
   footer nav{display:flex; align-items:baseline; gap:clamp(14px, 1.6vw, 24px)}
+  footer .legal{font-size:15px}
   footer a{color:#000; text-decoration:none}
   footer a:hover{text-decoration:underline; text-underline-offset:3px}
 
   /* Phones: one screen, no scrolling. A 400 x 810 frame: across, it fills the screen's
      width (--u); down, it squeezes to the screen's height (--uy), so on shorter phones
-     the pieces sit closer and may overlap. RAYU / Coming Soon sit in the middle (y 405). */
+     the pieces sit closer and may overlap. RAYU + the slogan sit in the middle (y 405). */
   @media (max-width:700px) and (orientation:portrait){
     :root{ --fw:400; --fh:810; --u:calc(100vw / 400); --uy:calc(100svh / 810); }
     body{display:block; height:100svh; overflow:hidden}
@@ -135,9 +136,9 @@
     .blob-green{--x:44;  --y:196; --k:.42}
     .ball      {--x:116; --y:252; --k:.58}
     .painting  {--x:318; --y:252; --k:.5}
-    /* Logo + Coming Soon: exactly in the middle of the screen, whatever its height. */
-    .logo      {--x:200; --k:.55; top:calc(405 * var(--uy) - 39 * var(--u))}
-    .soon      {--x:200; --k:.56; top:calc(405 * var(--uy) + 21 * var(--u))}
+    /* Logo + slogan: exactly in the middle of the screen, whatever its height. */
+    .logo      {--x:200; --k:.55; top:calc(405 * var(--uy) - 57 * var(--u))}
+    .slogan    {--x:200; --k:.55; top:calc(405 * var(--uy) + 14.5 * var(--u))}
     .blob-b1   {--x:40;  --y:480; --k:.42}
     .blue1     {--x:100; --y:559; --k:.5}
     .love      {--x:290; --y:513; --k:.62}
@@ -151,7 +152,7 @@
 </head>
 <body>
   <main class="stage">
-    <h1 class="visually-hidden">Rayu — coming soon</h1>
+    <h1 class="visually-hidden">Rayu — little moments worth remembering</h1>
 
     <!-- Same layer order as Figma: later pieces sit on top. -->
     <div class="it card shadow street"><img src="cover/photo-street.jpg" alt="Two kids laughing on a sidewalk"></div>
@@ -176,7 +177,7 @@
     <img class="it star" src="cover/blob-star.svg" alt="">
 
     <p class="it txt hand rain">THE RAIN<br>MAKES<br>EVERYTHING<br>BADDER</p>
-    <p class="it txt hand soon">COMING SOON</p>
+    <p class="it txt hand slogan">LITTLE MOMENTS<br>WORTH REMEMBERING</p>
     <p class="it txt heavy monkey">WHY IS IT CALLED<br>MONKEY BARS?<br>BECAUSE MONKEYS<br>LIVE ON BARS?</p>
     <p class="it txt heavy love">I LOVE YOU<br>ELEVENTY<br>GOOGOLPLEX<br>MILLION<br>HUNDRED</p>
     <p class="it txt serif moon">Is the moon<br>come in<br>our house?</p>
@@ -196,7 +197,7 @@
       <a href="privacy.html">privacy</a>
       <a href="support.html">support</a>
     </nav>
-    <span>© 2026 BTW ILY LLC</span>
+    <span class="legal">© 2026 BTW ILY LLC</span>
   </footer>
 </body>
 </html>
