@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["5ZTTA2Z9G9.com.arielle.RAYU", "5ZTTA2Z9G9.com.arielle.RAYU.dev"],
+        "components": [{ "/": "/join*", "comment": "Rayu invites (ARI-82)" }]
+      }
+    ]
+  }
+}

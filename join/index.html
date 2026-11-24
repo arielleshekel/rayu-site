@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>You're invited to Rayu</title>
+<meta name="description" content="Someone invited you to their moments on Rayu.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,900&display=swap" rel="stylesheet">
+<style>
+  /* Figma: RAYU file, "for claude" page, frames "collab" 921:5537 and "view only" 921:5522 (402 x 874). */
+  @font-face{
+    font-family:"Blanket Burrito";
+    src:url("../cover/BlanketBurritoRegular.otf") format("opentype");
+    font-display:swap;
+  }
+  :root{
+    --bg:#FFFEFB; --green:#4E9478; --orange:#FF4D10; --blue:#564FFA;
+    /* One Figma pixel. The frame is 402 wide; wider screens keep the phone size. */
+    --u:calc(min(100vw, 430px) / 402);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0; background:var(--bg); color:#000; -webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  /* The logo sits at the top; everything else is measured from the bottom,
+     so a short screen only loses the empty space in the middle. */
+  .stage{
+    position:relative; margin:0 auto;
+    width:calc(402 * var(--u));
+    height:100svh; min-height:calc(640 * var(--u));
+  }
+  .logo{position:absolute; left:50%; top:calc(63.65 * var(--u)); width:calc(83.05 * var(--u)); transform:translateX(-50%)}
+  .logo img{display:block; width:100%; height:auto}
+
+  .blob{
+    position:absolute; display:block;
+    left:calc(var(--cx) * var(--u)); bottom:calc(var(--cb) * var(--u));
+    width:calc(var(--w) * var(--u)); height:auto;
+    transform:translate(-50%, 50%) rotate(var(--r));
+  }
+  .star  {--cx:82.2;  --cb:409.7; --w:74.71; --r:-97.89deg}
+  .orange{--cx:269.5; --cb:342.9; --w:66.73; --r:89.31deg}
+  .pink  {--cx:316.6; --cb:289.4; --w:60.75; --r:-11.55deg}
+
+  .note{
+    position:absolute; margin:0;
+    left:calc(var(--cx) * var(--u)); bottom:calc(var(--cb) * var(--u));
+    width:calc(var(--w) * var(--u));
+    transform:translate(-50%, 50%) rotate(var(--r));
+    font-family:"Blanket Burrito","DM Sans",sans-serif; font-weight:400;
+    font-size:calc(12.946 * var(--u)); line-height:calc(17.475 * var(--u));
+    letter-spacing:calc(-0.3287 * var(--u)); text-align:center; white-space:pre-line;
+  }
+  .have {--cx:161.06; --cb:489.7; --w:229.9; --r:5.38deg; color:var(--blue)}
+  .have a{color:inherit; text-decoration:underline; text-underline-offset:calc(2 * var(--u))}
+  .free {--cx:322.8;  --cb:409.7; --w:200;   --r:7.32deg; color:var(--green)}
+  .what {--cx:116.8;  --cb:310.8; --w:290.5; --r:-4.71deg; color:var(--orange)}
+
+  h1{
+    position:absolute; margin:0; left:50%; transform:translateX(-50%);
+    bottom:calc(133.94 * var(--u)); width:calc(362.56 * var(--u));
+    font-family:"DM Sans",system-ui,sans-serif; font-weight:900;
+    font-size:calc(46.149 * var(--u)); line-height:calc(43.072 * var(--u));
+    letter-spacing:calc(-1.5383 * var(--u)); text-align:center;
+    font-variation-settings:"opsz" 14;
+  }
+  .cta{
+    position:absolute; left:calc(26 * var(--u)); bottom:calc(36.3 * var(--u));
+    width:calc(350 * var(--u)); height:calc(56 * var(--u));
+    border:0; border-radius:calc(16 * var(--u)); background:var(--green); color:#fff; cursor:pointer;
+    font-family:"DM Sans",system-ui,sans-serif; font-weight:900;
+    font-size:calc(16 * var(--u)); letter-spacing:calc(-0.5 * var(--u));
+    font-variation-settings:"opsz" 14;
+  }
+  .missing .have, .missing .free, .missing .what, .missing .cta{display:none}
+</style>
+</head>
+<body>
+<main class="stage" id="page">
+  <div class="logo"><img src="rayu.svg" alt="Rayu"></div>
+
+  <p class="note have" id="have">ALREADY HAVE RAYU?
+<a id="join" href="#">OPEN THE INVITE</a></p>
+  <img class="blob star" src="star.svg" alt="">
+  <p class="note free">IT&rsquo;S FREE!</p>
+  <img class="blob orange" src="orange.svg" alt="">
+  <p class="note what" id="what">SAVE YOUR
+LITTLE MOMENTS
+TOGETHER</p>
+  <img class="blob pink" src="pink.svg" alt="">
+
+  <h1 id="title">You&rsquo;re invited<br>to Rayu</h1>
+  <button class="cta" id="get" type="button">Get Rayu</button>
+</main>
+<script>
+  // Someone who has Rayu 1.0.1 or later never sees this page: iOS opens Rayu
+  // straight from the link (.well-known/apple-app-site-association).
+  // A new invite opened in the same tab only changes the "#": read it again.
+  window.addEventListener("hashchange", function () { location.reload(); });
+  var APP_STORE = "https://apps.apple.com/app/id6763325715";
+  // The invite lives after the "#", which browsers never send to the website,
+  // so rayumoments.com never sees it. Format: #i=<iCloud invite>&n=<first name>&k=c|v
+  var p = new URLSearchParams(location.hash.slice(1));
+  var invite = p.get("i") || "";
+  var name = (p.get("n") || "").trim().slice(0, 40);
+  var together = p.get("k") === "c";
+
+  if (!/^https:\/\/www\.icloud\.com\/share\//.test(invite)) {
+    document.getElementById("page").classList.add("missing");
+    document.getElementById("title").textContent = "Ask for a new invite";
+  } else {
+    if (name) {
+      // Two lines like the design: "Arielle invited / you to Rayu".
+      var t = document.getElementById("title");
+      t.textContent = name + " invited";
+      t.appendChild(document.createElement("br"));
+      t.appendChild(document.createTextNode("you to Rayu"));
+    }
+    if (!together) {
+      document.getElementById("what").textContent = name
+        ? "SEE THE MOMENTS\n" + name.toUpperCase() + " IS SAVING"
+        : "SEE THE MOMENTS\nTHEY’RE SAVING";
+    }
+    document.getElementById("join").href = invite;
+    document.getElementById("get").addEventListener("click", function () {
+      // Rayu looks for this copied link the first time it opens.
+      var go = function () { location.href = APP_STORE; };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(location.href).then(go, go);
+      } else { go(); }
+    });
+  }
+</script>
+</body>
+</html>
